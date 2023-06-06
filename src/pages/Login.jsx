@@ -2,14 +2,32 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import {useForm} from 'react-hook-form';
+import axios from 'axios';
+import {setIsLoading} from '../store/slices/isLoading.slice'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
   const { register, handleSubmit } = useForm ()
+  const dispatch = useDispatch ()
+  const navigate = useNavigate ()
 
   const submit =(data) => {
-      console.log(data);
+      axios
+      .post (`https://e-commerce-api-v2.academlo.tech/api/v1/users/login`,data)
+      .then (resp => {
+        localStorage .setItem ("token", resp.data.token)
+        navigate ("/")
+      })
+      .catch (error => {
+        if (error.response.status === 401) {
+          alert ("credenciales incorrectas")
+        }
+      })
+      .finally (() => dispatch (setIsLoading (false)))
   }
-
+  
   
     return (
         
@@ -44,8 +62,6 @@ const Login = () => {
           />
         
       </Form.Group>
-   
-
       <Form.Group as={Row} className="mb-3">
         
           <Button type="submit">Login</Button>
