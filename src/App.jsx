@@ -9,7 +9,7 @@ import Login from './pages/Login'
 import Loader from './components/Loader'
 import {useSelector} from 'react-redux'
 import Container from 'react-bootstrap/Container';
-import {ProtectedRoutes} from './components/ProtectedRoutes'
+
 
 
 function App() {
@@ -48,6 +48,7 @@ function App() {
 
         {/*ruta protegida*/}
         <Route
+       
          element = {<Purcharses/>}
          path = "/purcharses"
         />
