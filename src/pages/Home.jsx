@@ -43,6 +43,10 @@ const Home = () => {
         <Row className='pt-5'>
             <Col md = {4} lg = {3}>
             <ListGroup className ="w-100">
+                <div className='filter-category'>
+                <h6>CATEGORY</h6>
+                </div>
+                
             {
                 categories.map ( category => (
                     <ListGroup.Item style={{cursor: "pointer"}}

@@ -118,7 +118,7 @@
   --bs-btn-active-bg: #cfb56a;
   --bs-btn-active-border-color: #cfb56a;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: rgb(0, 0, 0);;
+  --bs-btn-disabled-color: rgb(0, 0, 0);
   --bs-btn-disabled-bg: #f4d67c;
   --bs-btn-disabled-border-color: #f4d67c;
 
@@ -160,4 +160,18 @@
 .offcanvas-header .btn-close{
   background-color: #cfb56a;
   color:#212529 ;
+}
+
+.filter-category{
+  background-color: #cfb56a;
+  color:  rgb(0, 0, 0);;
+  position: relative;
+    display: block;
+    position: relative;
+    display: flex;
+    padding: 10px 10px 5px 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+    font-family: var(--bs-body-font-family);
 }
