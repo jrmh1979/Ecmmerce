@@ -49,7 +49,7 @@ function App() {
         {/*ruta protegida*/}
         
         <Route
-        element ={ProtectedRoutes}
+        element ={<ProtectedRoutes/>}
         >
           <Route
          element = {<Purcharses/>}

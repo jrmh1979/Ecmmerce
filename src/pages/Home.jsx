@@ -95,11 +95,8 @@ const Home = () => {
                     >See Detail
                     </Button>
                     </Card>
-                   
                     </Col>
-
-                    
-                 ))
+                ))
                 }
            </Row>
             </Col>
