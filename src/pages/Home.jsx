@@ -49,7 +49,7 @@ const Home = () => {
                 
             {
                 categories.map ( category => (
-                    <ListGroup.Item style={{cursor: "pointer"}}
+                    <ListGroup.Item style={{ cursor: "pointer" }}
                     key={category.id}
                         onClick ={() => dispatch(filterCategoryThunk (category.id))}
                         >
@@ -73,7 +73,7 @@ const Home = () => {
                 variant="outline-secondary" 
                 id="button-addon2"
                 onClick={() => dispatch(filterNameThunk (searchValue))}>
-                Buscar
+                Search
                 </Button>
             </InputGroup>
             
