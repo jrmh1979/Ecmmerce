@@ -45,7 +45,7 @@ const Home = () => {
             <ListGroup className ="w-100">
             {
                 categories.map ( category => (
-                    <ListGroup.Item 
+                    <ListGroup.Item style={{cursor: "pointer"}}
                     key={category.id}
                         onClick ={() => dispatch(filterCategoryThunk (category.id))}
                         >
