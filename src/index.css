@@ -156,3 +156,8 @@
   background-color: #212529;
   color: #cfb56a;
 }
+
+.offcanvas-header .btn-close{
+  background-color: #cfb56a;
+  color:#212529 ;
+}
