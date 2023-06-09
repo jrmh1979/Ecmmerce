@@ -175,3 +175,7 @@
     border-radius: 10px 10px 0px 0px;
     font-family: var(--bs-body-font-family);
 }
+
+.fs-5 {
+  font-size: 1rem!important;
+}

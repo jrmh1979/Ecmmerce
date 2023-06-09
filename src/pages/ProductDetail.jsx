@@ -92,9 +92,8 @@ const ProductDetail = () => {
                <Col ms = {2}  md = {4} lg = {6}>
                 <h2>{product.title}</h2>
                 <p>{product.brand}</p>
-                <p>{product.createdAt}</p>
                 <p className="text-justify fs-5">{product.description}</p>
-                
+                <h5>Price : ${product.price}</h5><br />
                 <Button onClick={() => decrement ()}>-</Button>
                 <span className="m-3">{quantity}</span>
                 <Button onClick={() => setQuantity (quantity + 1)}>+</Button>
@@ -102,13 +101,13 @@ const ProductDetail = () => {
                 <Button 
                 className='primary ms-3' 
                 onClick={addToProducts}
-                >Agregar al Carrito</Button>
+                >Add to Cart</Button>
                 </Col>
             </Row> 
 
 
                 <div className='pt-5'>
-                <h3>Productos Relacionados</h3>
+                <h4>Productos Relacionados</h4>
                 <Row xs={1} md={2} lg={3}>
                 {
                 productsFiltered.map ( products => (
@@ -118,14 +117,15 @@ const ProductDetail = () => {
                     style ={{ height :250, objectFit : "cover" , padding: "5px"} }/>
                     <Card.Body>
                     <p>{products.brand}</p>
-                    <p>{products.title}</p>
+                    <h6>{products.title}</h6>
                     <p>${products.price}</p>
+                    
+                    </Card.Body>
                     <Button 
                     variant="primary"
                     as={Link}
                     to={`/products/${products.id}`}
-                    >VER DETALLE</Button>
-                    </Card.Body>
+                    >See Detail</Button>
                     </Card>
                     </Col>
                  ))

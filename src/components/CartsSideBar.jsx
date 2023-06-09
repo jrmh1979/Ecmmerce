@@ -1,7 +1,7 @@
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCartsThunk, updateQuantityThunk,purchaseCartThunk} from '../store/slices/carts.slice'
+import { getCartsThunk, updateQuantityThunk,purchaseCartThunk,deleteThunk} from '../store/slices/carts.slice'
 import Button from "react-bootstrap/Button";
 import React from 'react';
 
@@ -31,6 +31,10 @@ const CartsSideBar = ({show, handleClose}) => {
        
       }
 
+      const deleteCart = carts => {
+        dispatch (deleteThunk (carts.id))
+      }
+
    return (
       <div>
    
@@ -45,10 +49,11 @@ const CartsSideBar = ({show, handleClose}) => {
               <li className='pt-3' key={cart.id}>
                 <img src={cart.product.images?.[0].url} alt="" style ={{ height :50, objectFit : "cover"} }/>
                 <br />
-                <p>{cart.product.title}</p>
+                <h6>{cart.product.title}</h6>
                 <Button onClick={()=> decrementQuantity (cart)}>-</Button>
                 <span className="m-3">{cart.quantity}</span>
                 <Button onClick={()=> incrementQuantity (cart)}>+</Button>
+                <Button className="m-3" onClick={()=> deleteCart (cart)}>Delete</Button>
               </li>
             ))
           }
@@ -58,7 +63,7 @@ const CartsSideBar = ({show, handleClose}) => {
         
         <Button
         onClick={()=> dispatch (purchaseCartThunk ())}
-        >Comprar
+        >CONFIRM PURCHARSE
         </Button>
       </Offcanvas>
         </div>
