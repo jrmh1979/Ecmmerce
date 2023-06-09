@@ -90,3 +90,66 @@
     align-items: center;
     z-index: 99;
 }
+
+.nav-link {
+  color:#cfb56a ;
+}
+
+.navbar-brand {
+  color:#cfb56a ;
+  font-size:30px;
+}
+
+.btn {
+  --bs-btn-color: #212529;
+  color: #cfb56a;
+  border: rgba(0, 0, 0, 0.9);
+  background-color:rgba(0, 0, 0, 0.9);
+}
+
+.btn-primary{
+  --bs-btn-bg: #f4d67c;
+  --bs-btn-border-color: #f4d67c;
+  --bs-btn-hover-color: rgb(0, 0, 0);
+  --bs-btn-hover-bg: #cfb56a;
+  --bs-btn-hover-border-color: #cfb56a;
+  --bs-btn-focus-shadow-rgb: 49,132,253;
+  --bs-btn-active-color: rgb(0, 0, 0);;
+  --bs-btn-active-bg: #cfb56a;
+  --bs-btn-active-border-color: #cfb56a;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: rgb(0, 0, 0);;
+  --bs-btn-disabled-bg: #f4d67c;
+  --bs-btn-disabled-border-color: #f4d67c;
+
+}
+
+.card {
+  
+  box-sizing: border-box;
+  width: 350px;
+  height: 450px;
+}
+
+
+
+.card-title {
+  font-size: 15px;
+}
+
+.navbar-toggler{
+  background-color: #f4d67c;
+  border :#f4d67c
+}
+
+.navbar-nav {
+  --bs-nav-link-color: #ffffff;
+  --bs-nav-link-hover-color: #ffffff
+}
+
+.navbar{
+ 
+    --bs-navbar-brand-hover-color: #ffffff;
+}
+
+

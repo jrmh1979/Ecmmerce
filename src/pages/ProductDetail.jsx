@@ -7,9 +7,9 @@ import Col from 'react-bootstrap/Col';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterCategoryThunk } from '../store/slices/products.slice';
 import Carousel from 'react-bootstrap/Carousel';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom'
+import { addProductsThunk } from '../store/slices/carts.slice';
 
 
 
@@ -19,7 +19,7 @@ const ProductDetail = () => {
     const {id}= useParams ()
     //estado para guardar
     const [product, setProduct ] = useState ({})
-    const [ rate, setRate] = useState (1)
+    const [quantity, setQuantity] = useState (1)
     const dispatch = useDispatch ()
 
     // filtrado de productos relacionados 
@@ -38,20 +38,24 @@ const ProductDetail = () => {
     },[]) 
 
         const decrement =() => {
-            if (rate > 1 )
-            setRate (rate-1)
+            if (quantity > 1 )
+            setQuantity (quantity-1)
         
 
         }
 
-    const buttonStyle = {
-    backgroundColor: '#ff0534', // Color de fondo rojo
-    color: '#ffffff', // Color de texto blanco
-    };
+        const addToProducts = () => {
+        const products = {
+            quantity : quantity,
+            productId : product.id
+            
+        }
 
+        dispatch ( addProductsThunk(products))
+    }
 
     return (
-        <div>
+        <div >
             <Row className='pt-5'>
                 <Col ms = {2}  md = {4} lg = {6}>
                 <p>{product.title}</p>
@@ -59,7 +63,7 @@ const ProductDetail = () => {
                 <Carousel.Item>
                 < img
                 className="mx-auto d-block"
-                Image src={product.images?. [0].url} 
+                src={product.images?.[0].url} 
                 style ={{ height :350, objectFit : "cover"} }
                 alt="First slide"
                 />
@@ -68,7 +72,7 @@ const ProductDetail = () => {
                 <Carousel.Item>
                 <img
                 className="mx-auto d-block"
-                Image src={product.images?. [1].url}
+                src={product.images?.[1].url}
                 style ={{ height :350, objectFit : "cover"} } 
                 alt=""
                 />    
@@ -77,7 +81,7 @@ const ProductDetail = () => {
                 <Carousel.Item>
                 <img
                 className="mx-auto d-block"
-                Image src={product.images?. [2].url}
+                src={product.images?.[2].url}
                 style ={{ height :350, objectFit : "cover"} }
                 alt="Third slide"
                 />
@@ -90,10 +94,15 @@ const ProductDetail = () => {
                 <p>{product.brand}</p>
                 <p>{product.createdAt}</p>
                 <p className="text-justify fs-5">{product.description}</p>
+                
                 <Button onClick={() => decrement ()}>-</Button>
-                <span className="m-3">{rate}</span>
-                <Button onClick={() => setRate (rate + 1)}>+</Button>
-                <Button style={buttonStyle} className='primary ms-3' >Agregar al Carrito</Button>
+                <span className="m-3">{quantity}</span>
+                <Button onClick={() => setQuantity (quantity + 1)}>+</Button>
+
+                <Button 
+                className='primary ms-3' 
+                onClick={addToProducts}
+                >Agregar al Carrito</Button>
                 </Col>
             </Row> 
 
@@ -109,7 +118,7 @@ const ProductDetail = () => {
                     style ={{ height :250, objectFit : "cover" , padding: "5px"} }/>
                     <Card.Body>
                     <p>{products.brand}</p>
-                    <Card.Title>{products.title}</Card.Title>
+                    <p>{products.title}</p>
                     <p>${products.price}</p>
                     <Button 
                     variant="primary"

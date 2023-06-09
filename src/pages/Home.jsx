@@ -10,6 +10,7 @@ import { useEffect , useState} from 'react';
 import axios from 'axios';
 import ListGroup from 'react-bootstrap/ListGroup';
 import {Link} from 'react-router-dom'
+import React from 'react';
 
 
 const Home = () => {
@@ -55,11 +56,11 @@ const Home = () => {
             </ListGroup>
             </Col>
             <Col md = {8} lg = {9}>
-            <h1>PRODUCTOS</h1>
+            <h3>PRODUCTS</h3>
             <InputGroup className="mb-3">
                 <Form.Control
-                placeholder="Buscar por Nombre"
-                aria-label="Buscar por Nombre"
+                placeholder="Search by name"
+                aria-label="Search by name"
                 aria-describedby="basic-addon2"
                 value={searchValue}
                 onChange = {e => setSearchValue (e.target.value)}
@@ -85,12 +86,14 @@ const Home = () => {
                     <p>{products.brand}</p>
                     <Card.Title>{products.title}</Card.Title>
                     <p>${products.price}</p>
+                    
+                    </Card.Body>
                     <Button 
                     variant="primary"
                     as={Link}
                     to={`/products/${products.id}`}
-                    >VER DETALLE</Button>
-                    </Card.Body>
+                    >See Detail
+                    </Button>
                     </Card>
                    
                     </Col>

@@ -14,6 +14,8 @@ export const productSlice = createSlice({
     }
 })
 
+
+
 export const {setProducts} = productSlice.actions;
 
 export default productSlice.reducer;
@@ -36,7 +38,10 @@ export const getProductsThunk =() => dispatch => {
 
     axios
     .get ("https://e-commerce-api-v2.academlo.tech/api/v1/products")
-    .then (resp => dispatch (setProducts(resp.data)))
+    .then (resp => {
+        console.log(resp.data);
+        dispatch (setProducts(resp.data))
+    })
   
     .catch (error => console.error (error))
     .finally (()=> dispatch (setIsLoading (false)))
@@ -77,3 +82,5 @@ export const filterNameThunk = value => dispatch => {
     .finally (()=> dispatch (setIsLoading (false)))
 
 }
+
+    

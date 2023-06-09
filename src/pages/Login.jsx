@@ -6,7 +6,7 @@ import axios from 'axios';
 import {setIsLoading} from '../store/slices/isLoading.slice'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import React from 'react';
 
 const Login = () => {
   const { register, handleSubmit } = useForm ()
@@ -17,6 +17,7 @@ const Login = () => {
       axios
       .post (`https://e-commerce-api-v2.academlo.tech/api/v1/users/login`,data)
       .then (resp => {
+        //guardar informacion el local Storage (token)
         localStorage .setItem ("token", resp.data.token)
         navigate ("/")
       })
@@ -24,6 +25,7 @@ const Login = () => {
         if (error.response.status === 401) {
           alert ("credenciales incorrectas")
         }
+        console.error(error);
       })
       .finally (() => dispatch (setIsLoading (false)))
   }

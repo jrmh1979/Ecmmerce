@@ -9,19 +9,16 @@ import Login from './pages/Login'
 import Loader from './components/Loader'
 import {useSelector} from 'react-redux'
 import Container from 'react-bootstrap/Container';
-
+import ProtectedRoutes from './components/ProtectedRoutes'
 
 
 function App() {
 
   /*axios.get("url")
     axios.post (url, body)
-
-
   */
  const isLoading = useSelector (state => state.isLoading)
-  
-
+ 
   return (
     <HashRouter>
       {
@@ -46,12 +43,20 @@ function App() {
         path = "/products/:id"
         />
 
-        {/*ruta protegida*/}
         <Route
-       
          element = {<Purcharses/>}
          path = "/purcharses"
         />
+        
+
+        {/*ruta protegida*/}
+        
+        <Route
+        element ={ProtectedRoutes}
+        >
+        
+        
+        </Route>
 
      </Routes>
      </Container>      
