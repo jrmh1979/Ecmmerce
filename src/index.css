@@ -151,3 +151,8 @@
  
     --bs-navbar-brand-hover-color: #ffffff;
 }
+
+.offcanvas-header{
+  background-color: #212529;
+  color: #cfb56a;
+}
