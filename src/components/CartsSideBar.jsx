@@ -39,8 +39,6 @@ const CartsSideBar = ({show, handleClose}) => {
           <Offcanvas.Title>Shoping Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          
-        </Offcanvas.Body>
         <ul >
           {
             carts.map (cart => (
@@ -48,14 +46,16 @@ const CartsSideBar = ({show, handleClose}) => {
                 <img src={cart.product.images?.[0].url} alt="" style ={{ height :50, objectFit : "cover"} }/>
                 <br />
                 <p>{cart.product.title}</p>
-                <button onClick={()=> decrementQuantity (cart)}>-</button>
+                <Button onClick={()=> decrementQuantity (cart)}>-</Button>
                 <span className="m-3">{cart.quantity}</span>
-                <button onClick={()=> incrementQuantity (cart)}>+</button>
+                <Button onClick={()=> incrementQuantity (cart)}>+</Button>
               </li>
             ))
           }
           
         </ul>
+        </Offcanvas.Body>
+        
         <Button
         onClick={()=> dispatch (purchaseCartThunk ())}
         >Comprar

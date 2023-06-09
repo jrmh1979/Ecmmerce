@@ -43,10 +43,7 @@ function App() {
         path = "/products/:id"
         />
 
-        <Route
-         element = {<Purcharses/>}
-         path = "/purcharses"
-        />
+        
         
 
         {/*ruta protegida*/}
@@ -54,6 +51,10 @@ function App() {
         <Route
         element ={ProtectedRoutes}
         >
+          <Route
+         element = {<Purcharses/>}
+         path = "/purcharses"
+        />
         
         
         </Route>
